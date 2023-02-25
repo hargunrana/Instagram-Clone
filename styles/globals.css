@@ -24,3 +24,27 @@ a {
         background: white;
     }
 }
+
+/* FOOTER */
+.footer {
+    /* background-color: aquamarine; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60rem;
+    flex-wrap: wrap;
+    font-size: 0.75rem;
+    padding-top:1rem ;
+    padding-bottom: 2rem;
+    color: grey;
+}
+.footer > * {
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.underline:hover {
+    text-decoration: underline;
+}
