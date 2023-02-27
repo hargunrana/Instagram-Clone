@@ -1,6 +1,7 @@
 import React from "react";
 
 function Footer() {
+    const date = new Date();
     return (
         <div className="footer">
             <div className="underline"> Meta </div>
@@ -18,7 +19,7 @@ function Footer() {
             <div> Contact uploading and non-users</div>
             <div> Meta Verified</div>
             <div> English (UK) </div>
-            <div> © 2023 Instagram from Meta</div>
+            <div> © {date.getFullYear()} Instagram from Meta</div>
         </div>
     );
 }

@@ -37,8 +37,21 @@
 
 .iphone-image {
     background-image: url(../../assets/iPhone.png);
-    background-size: 25rem 38rem;
-    width: 25rem;
-    height: 38rem;
+    background-size: 26rem 37rem;
+    width: 25.5rem;
+    height: 37rem;
     margin-right: 1rem;
+}
+
+.carousel {
+    position: absolute;
+    top: 15px;
+    padding-left: 62px;
+    padding-right: 13px;
+}
+
+@media screen and (max-width: 768px) {
+    .iphone-image {
+        display: none;
+    }
 }

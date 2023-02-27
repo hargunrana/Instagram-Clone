@@ -34,7 +34,7 @@ a {
     width: 60rem;
     flex-wrap: wrap;
     font-size: 0.75rem;
-    padding-top:1rem ;
+    padding-top: 1rem;
     padding-bottom: 2rem;
     color: grey;
 }
@@ -47,4 +47,20 @@ a {
 
 .underline:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 930px) {
+    .footer {
+        width: 40rem;
+    }
+}
+@media screen and (max-width: 630px){
+    .footer{
+        width: 30rem;
+    }
+}
+@media screen and (max-width: 490px) {
+    .footer {
+        width: 20rem;
+    }
 }
