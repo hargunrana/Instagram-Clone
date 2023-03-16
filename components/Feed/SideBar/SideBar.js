@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
 import logo from "../../../assets/InstagramLogo.svg";
 import logoSmall from "../../../assets/InstagramLogoSmall.svg";
@@ -10,9 +10,19 @@ import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import { AuthContext } from "@/context/Auth";
+import { useRouter } from "next/router";
 
-function SideBar() {
-    const [sideButton, setSideButton] = useState("Home");
+function SideBar({ viewButton, setView }) {
+    const [sideButton, setSideButton] = useState(viewButton);
+    const { logOut, user } = useContext(AuthContext);
+    const router = useRouter();
+
+    const handleLogOut = async () => {
+        await logOut();
+        router.push("/login");
+    };
+
     return (
         <div className="side-bar">
             <Image className="logo-small" src={logoSmall} alt="Instagram" />
@@ -31,7 +41,10 @@ function SideBar() {
                     ) : (
                         <div
                             key={index}
-                            onClick={() => setSideButton(btn.title)}
+                            onClick={() => {
+                                setSideButton(btn.title);
+                                setView(btn.title);
+                            }}
                         >
                             <SideBarButton title={btn.title} icon={btn.icon} />
                         </div>
@@ -43,7 +56,12 @@ function SideBar() {
                         <SideBarButton title={"Create"} icon={AddBoxIcon} />
                     </div>
                 ) : (
-                    <div onClick={() => setSideButton("Create")}>
+                    <div
+                        onClick={() => {
+                            setSideButton("Create");
+                            setView("Create");
+                        }}
+                    >
                         <SideBarButton
                             title={"Create"}
                             icon={AddBoxOutlinedIcon}
@@ -58,7 +76,12 @@ function SideBar() {
                         />
                     </div>
                 ) : (
-                    <div onClick={() => setSideButton("Profile")}>
+                    <div
+                        onClick={() => {
+                            setSideButton("Profile");
+                            setView("Profile");
+                        }}
+                    >
                         <SideBarButton
                             title={"Profile"}
                             icon={AccountCircleOutlinedIcon}
@@ -66,7 +89,12 @@ function SideBar() {
                     </div>
                 )}
             </div>
+
+            <div onClick={() => handleLogOut()}>
+                <SideBarButton title={"Log Out"} icon={AccountCircleIcon} />
+            </div>
         </div>
+        //  </sideButtonContext.Provider>
     );
 }
 
