@@ -55,3 +55,24 @@
         display: none;
     }
 }
+
+/* LOADING Page CSS */
+
+.loading-page {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    
+}
+.insta-logo{
+    margin-top: 46vh;
+}
+.meta-logo {    
+    font-size: small;
+    text-align: center;
+    color: #8b8b8b;
+    margin-bottom: 1.5rem;
+}

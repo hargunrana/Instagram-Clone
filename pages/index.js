@@ -1,12 +1,18 @@
 import Head from "next/head";
-// import Image from "next/image";
-// import { Inter } from "@next/font/google";
-// import styles from "@/styles/Home.module.css";
 import Feed from "@/components/Feed/Feed";
-
-// const inter = Inter({ subsets: ["latin"] });
-
+import { useContext, useEffect,useState } from "react";
+import { AuthContext } from "@/context/Auth";
+import { default as Login } from "./login/index";
+import LoadingPage from "@/components/LoadingPage";
 export default function Home() {
+    const { user } = useContext(AuthContext);
+    const [showLoader, setShowLoader] = useState(true);
+    useEffect(() => {
+        setTimeout(() => {
+            setShowLoader(false);
+        }, 2000);
+        clearInterval();
+    });
     return (
         <>
             <Head>
@@ -22,7 +28,11 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Feed />
+            {user?.uid ? (
+                <Feed />
+            ) : (
+                <div>{showLoader ? <LoadingPage /> : <Login />}</div>
+            )}
         </>
     );
 }
