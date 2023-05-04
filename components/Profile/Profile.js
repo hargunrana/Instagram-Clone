@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
+// import Image from "next/image";
 import React from "react";
-import Avatar from "../../assets/Avatar.svg";
+// import Avatar from "../../assets/Avatar.svg";
 function Profile({ userData }) {
     return (
         <div className="profile-body">

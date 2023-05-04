@@ -6,12 +6,12 @@ function LoadingPage() {
     return (
         <div className="loading-page">
             <div className="insta-logo">
-                <Image src={logo} width={70}></Image>
+                <Image src={logo} width={70} alt="/"></Image>
             </div>
 
             <div className="meta-logo">
                 <div>from</div>
-                <Image src={metaLogo} width={100}></Image>
+                <Image src={metaLogo} width={100} alt="/"></Image>
             </div>
         </div>
     );

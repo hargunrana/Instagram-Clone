@@ -24,6 +24,7 @@ function index() {
             //route to feed page
             router.push("/");
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
 
     let handleLogIn = async () => {
