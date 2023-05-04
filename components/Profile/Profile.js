@@ -1,13 +1,16 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import React from "react";
 import Avatar from "../../assets/Avatar.svg";
-function Profile() {
+function Profile({ userData }) {
     return (
         <div className="profile-body">
             <div className="profile-area">
                 <div className="profile-info">
                     <div className="profile-picture">
-                        <Image width="130" src={Avatar} />
+                        {/* <Image width="130" src={Avatar} /> */}
+                        <img src={userData.downloadURL} width={100} alt=""/>
+                        
                     </div>
                     <div className="user-info">
                         <div
@@ -18,7 +21,8 @@ function Profile() {
                                 fontSize: "18px",
                             }}
                         >
-                            Name
+                            {userData.fullName}
+                            {/* Name */}
                         </div>
 
                         <div className="followers-info">
@@ -44,7 +48,7 @@ function Profile() {
                                 fontWeight: "bold",
                             }}
                         >
-                            Full Name
+                            {userData.fullName}
                         </div>
                         <div className="bio"></div>
                     </div>
@@ -58,7 +62,6 @@ function Profile() {
                     <div className="post"></div>
                     <div className="post"></div>
                     <div className="post"></div>
-                    
                 </div>
             </div>
         </div>

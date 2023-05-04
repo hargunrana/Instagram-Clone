@@ -36,12 +36,14 @@
     align-items: flex-start;
 }
 
-.profile-picture {
+.profile-picture>* {
     background-color: rgb(122, 34, 34);
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
     border: 10px solid black;
+
+    object-fit: cover;
 
     display: flex;
     justify-content: center;

@@ -1,8 +1,10 @@
 import React from "react";
+import Upload from "../SideBar/Upload";
 import OptionMenu from "./OptionMenu";
 function Reels() {
     return (
         <div className="feed">
+            
             <div className="post-container">
                 <video />
                 <OptionMenu />

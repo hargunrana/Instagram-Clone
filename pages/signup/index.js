@@ -56,6 +56,19 @@ function index() {
                     getDownloadURL(uploadTask.snapshot.ref).then(
                         async (downloadURL) => {
                             console.log("File available at", downloadURL);
+                            let userData = {
+                                fullName,
+                                email,
+                                password,
+                                downloadURL,
+                                
+                            };
+                            // db,collection name, document name
+                            await setDoc(
+                                doc(db, "users", userInfo.user.uid),
+                                userData
+                            );
+                            console.log("doc added to db");
                         }
                     );
                 }

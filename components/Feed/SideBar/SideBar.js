@@ -12,8 +12,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import { AuthContext } from "@/context/Auth";
 import { useRouter } from "next/router";
+import { Button } from "@mui/material";
+import Upload from "./Upload";
 
-function SideBar({ viewButton, setView }) {
+function SideBar({ viewButton, setView, userData }) {
     const [sideButton, setSideButton] = useState(viewButton);
     const { logOut, user } = useContext(AuthContext);
     const router = useRouter();
@@ -51,23 +53,27 @@ function SideBar({ viewButton, setView }) {
                     )
                 )}
 
-                {sideButton === "Create" ? (
-                    <div style={{ fontWeight: "bold" }}>
-                        <SideBarButton title={"Create"} icon={AddBoxIcon} />
-                    </div>
-                ) : (
-                    <div
-                        onClick={() => {
-                            setSideButton("Create");
-                            setView("Create");
-                        }}
-                    >
-                        <SideBarButton
-                            title={"Create"}
-                            icon={AddBoxOutlinedIcon}
-                        />
-                    </div>
-                )}
+                <div>
+                    {sideButton === "Create" ? (
+                        <div style={{ fontWeight: "bold" }}>
+                            <SideBarButton title={"Create"} icon={AddBoxIcon} />
+                        </div>
+                    ) : (
+                        <div
+                            onClick={() => {
+                                setSideButton("Create");
+                                setView("Create");
+                            }}
+                        >
+                            <SideBarButton
+                                title={"Create"}
+                                icon={AddBoxOutlinedIcon}
+                            />
+                        </div>
+                    )}
+                </div>
+
+                {/* Profile */}
                 {sideButton === "Profile" ? (
                     <div style={{ fontWeight: "bold" }}>
                         <SideBarButton
@@ -93,8 +99,9 @@ function SideBar({ viewButton, setView }) {
             <div onClick={() => handleLogOut()}>
                 <SideBarButton title={"Log Out"} icon={AccountCircleIcon} />
             </div>
+
+            <Upload userData={userData} />
         </div>
-        //  </sideButtonContext.Provider>
     );
 }
 
